@@ -53,13 +53,13 @@ class CustomUserController(
         return if (existingUserOptional.isPresent) {
             val existingUser = existingUserOptional.get()
 
-            // Update the values of the existing user
+           
             val userToUpdate = existingUser.copy(
                 name = updatedUser.name,
                 password = updatedUser.password
             )
 
-            // Save the updated user
+
             ResponseEntity.ok(customUserRepository.save(userToUpdate))
         } else {
             ResponseEntity.notFound().build()
